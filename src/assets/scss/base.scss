@@ -1,5 +1,6 @@
 @import './variables.scss';
 @import './mixins.scss';
+@import '/public/icons/fontello/css/icon.css';
 
 * {
   margin: 0;
@@ -24,3 +25,121 @@ body {
 img {
   width: 100%;
 }
+
+ul {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+// social 
+.social {
+  @include aic-jfcsb;
+
+
+  li {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      @include aic-jcc;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      overflow: hidden;
+      text-decoration: none;
+      font-size: 14px;
+
+      &.facebook {
+        background-color: #3b5998;
+        padding-top: 2px;
+      }
+
+      &.instagram {
+        position: relative;
+
+        &:before {
+          position: absolute;
+          content: '';
+          left: -134.19%;
+          right: -55.86%;
+          top: -162.7%;
+          bottom: -27.35%;
+          width: 70px;
+          height: 70px;
+          background: radial-gradient(50% 50% at 50% 50%, #FFD676 0%, #F2A454 25%, #F05C3C 38%, #C22F86 70%, #6666AD 96%, #5C6CB2 99%);
+        }
+      }
+
+      &.linkedin {
+        background-color: #0077B5;
+      }
+
+      &.behance {
+        background-color: #1769FF;
+        padding-top: 4px;
+      }
+
+      &.pinterest {
+        background-color: #E60019;
+        padding-top: 4px;
+        font-size: 19px;
+      }
+
+      i {
+        position: relative;
+        color: $wc;
+        @include aic-jcc;
+
+        &:before {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// social 
+
+// messengers
+.messengers {
+  @include aic-jfcsb;
+
+  li {
+    @include aic;
+    font-weight: 300;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      i{
+        margin-right: 3px;
+      }
+      &.whatsapp {
+        color: #36bc49;
+      }
+
+      &.telegram {
+        color: #039be5;
+      }
+
+      &.viber {
+        color: #8e24aa;
+      }
+    }
+  }
+}
+
+// messengers

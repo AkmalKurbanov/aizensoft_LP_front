@@ -74,6 +74,11 @@ header.header
   cursor: pointer;
 
   &:hover {
+    &:before,
+    &:after {
+      background-color: transparent;
+      border: 1px solid $mc;
+    }
     &:before {
       width: 32px;
     }
@@ -86,11 +91,12 @@ header.header
   &:before,
   &:after {
     position: absolute;
-    content: '';
-    height: 2px;
+    content: "";
+    height: 1px;
     background-color: $wc;
     transition: $tr;
     right: 0;
+    border: 1px solid transparent;
   }
 
   &:before {
@@ -104,7 +110,6 @@ header.header
   }
 
   &.open {
-
     &:before,
     &:after {
       width: 100%;
@@ -122,28 +127,28 @@ header.header
 }
 </style>
 
-<script >
-import Menu from '@/components/Menu.vue';
+<script>
+import Menu from "@/components/Menu.vue";
 export default {
   components: {
-    Menu
+    Menu,
   },
   data() {
     return {
-      headerElementDesc: 'РАЗРАБОТКА САЙТОВ <br> В КЫРГЫЗСТАНЕ',
+      headerElementDesc: "РАЗРАБОТКА САЙТОВ <br> В КЫРГЫЗСТАНЕ",
       menuСondition: false,
       menuСlose: false,
-    }
+    };
   },
   methods: {
     hamburger() {
       this.menuСondition = !this.menuСondition;
       if (this.menuСondition == false) {
-        this.menuСlose = true
+        this.menuСlose = true;
       } else {
-        this.menuСlose = false
+        this.menuСlose = false;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

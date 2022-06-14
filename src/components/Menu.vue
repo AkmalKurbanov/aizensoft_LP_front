@@ -8,7 +8,33 @@
       ul
         li(v-for="item in subMenu")
           a(href="#") {{ item.item }}      
-    .menu__bottom 
+    .menu__bottom
+      .col-wrap
+        .col 
+          .menu__bottom-col-title Мы в соц.сетях:
+          ul.social
+            li(v-for="social in socials")
+              a(href="#" :class="social.modificatorClass") 
+                i(:class="social.icon") 
+        .col 
+          .menu__bottom-col-title Телефон:
+          ul
+            li(v-for="phone in phones") {{phone.phone}} 
+        .col 
+          .menu__bottom-col-title E-mail:
+          ul
+            li(v-for="email in emails") 
+              a(href="mailto{{email.email}}") {{email.email}} 
+        .col 
+          .menu__bottom-col-title Мессенжеры:
+          ul.messengers
+            li(v-for="messenger in messengers")
+              a(href="#" :class="messenger.modificatorClass")
+                i(:class="messenger.messengerClass") 
+                span {{messenger.messenger}}
+                
+
+
 
 
 </template>
@@ -32,6 +58,7 @@
   &__top {
     @include aifs-jfcsb;
     width: 100%;
+    margin-bottom: 80px;
 
     ul {
       padding: 0;
@@ -55,21 +82,37 @@
           font-weight: 200;
           text-decoration: none;
           font-family: $jost;
-          // -webkit-text-stroke: 1px $wc;
-          // color: transparent;
+          &:hover {
+            text-shadow: 4px 4px 4px rgba($mc, 0.5);
+            -webkit-text-stroke: 1px $mc;
+            color: transparent;
+            font-weight: 300;
+          }
         }
       }
     }
   }
 
+  &__bottom {
+    font-family: $jost;
+    color: $wc;
+  }
+
+  &__bottom-col-title {
+    color: $wc;
+    font-weight: 600;
+    line-height: 23px;
+    margin-bottom: 15px;
+  }
+
   &.open {
-    animation-duration: .5s;
+    animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-name: bounce;
   }
 
   &.close {
-    animation-duration: .5s;
+    animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-name: close;
   }
@@ -110,53 +153,107 @@ export default {
     return {
       nav: [
         {
-          item: 'Главная',
-          link: '#',
+          item: "Главная",
+          link: "#",
         },
         {
-          item: 'Услуги',
-          link: '#',
+          item: "Услуги",
+          link: "#",
         },
         {
-          item: 'Портфолио',
-          link: '#',
+          item: "Портфолио",
+          link: "#",
         },
         {
-          item: 'О компании',
-          link: '#',
+          item: "О компании",
+          link: "#",
         },
         {
-          item: 'Блог',
-          link: '#',
+          item: "Блог",
+          link: "#",
         },
         {
-          item: 'Магазин',
-          link: '#',
+          item: "Магазин",
+          link: "#",
         },
       ],
       subMenu: [
         {
-          item: 'разработка сайтов',
-          link: '#',
+          item: "разработка сайтов",
+          link: "#",
         },
         {
-          item: 'iT-аутсорс',
-          link: '#',
+          item: "iT-аутсорс",
+          link: "#",
         },
         {
-          item: 'разработка дизайна',
-          link: '#',
+          item: "разработка дизайна",
+          link: "#",
         },
         {
-          item: 'интернет маркетинг',
-          link: '#',
+          item: "интернет маркетинг",
+          link: "#",
         },
         {
-          item: 'консалтинг',
-          link: '#'
+          item: "консалтинг",
+          link: "#",
         },
-      ]
-    }
-  }
-}
+      ],
+      socials: [
+        {
+          modificatorClass: "facebook",
+          icon: "icon-facebook",
+          link: "#",
+        },
+        {
+          modificatorClass: "instagram",
+          icon: "icon-instagram",
+          link: "#",
+        },
+        {
+          modificatorClass: "linkedin",
+          icon: "icon-linkedin",
+          link: "#",
+        },
+        {
+          modificatorClass: "behance",
+          icon: "icon-behance",
+          link: "#",
+        },
+        {
+          modificatorClass: "pinterest",
+          icon: "icon-pinterest",
+          link: "#",
+        },
+      ],
+      phones: [
+        {
+          phone: "+996 505 225 777",
+        },
+      ],
+      emails: [
+        {
+          email: "office@aizensoft.org",
+        },
+      ],
+      messengers: [
+        {
+          messenger: "WhatsApp",
+          messengerClass: "icon-whatsapp",
+          modificatorClass: "whatsapp",
+        },
+        {
+          messenger: "Telegram",
+          messengerClass: "icon-paper-plane-empty",
+          modificatorClass: "telegram",
+        },
+        {
+          messenger: "Viber",
+          messengerClass: "icon-viber",
+          modificatorClass: "viber",
+        },
+      ],
+    };
+  },
+};
 </script>
