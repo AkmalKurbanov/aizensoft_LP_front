@@ -1,0 +1,26 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bc;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.col-wrap {
+  @include aic-jfcsb;
+}
+
+img {
+  width: 100%;
+}
