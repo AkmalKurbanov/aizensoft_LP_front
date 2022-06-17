@@ -19,19 +19,20 @@
         .col 
           .menu__bottom-col-title Телефон:
           ul
-            li(v-for="phone in phones") {{phone.phone}} 
+            li(v-for="phone in phones")   
+              a(:href="`tel:${phone.phone}`") {{ phone.phone }}
         .col 
           .menu__bottom-col-title E-mail:
           ul
             li(v-for="email in emails") 
-              a(href="mailto{{email.email}}") {{email.email}} 
+              a(href="mailto{{email.email}}") {{ email.email }} 
         .col 
           .menu__bottom-col-title Мессенжеры:
           ul.messengers
             li(v-for="messenger in messengers")
               a(href="#" :class="messenger.modificatorClass")
                 i(:class="messenger.messengerClass") 
-                span {{messenger.messenger}}
+                span {{ messenger.messenger }}
                 
 
 
@@ -82,6 +83,7 @@
           font-weight: 200;
           text-decoration: none;
           font-family: $jost;
+
           &:hover {
             text-shadow: 4px 4px 4px rgba($mc, 0.5);
             -webkit-text-stroke: 1px $mc;
@@ -96,6 +98,15 @@
   &__bottom {
     font-family: $jost;
     color: $wc;
+
+    a {
+      color: $wc;
+      transition: $tr;
+
+      &:hover {
+        color: $mc;
+      }
+    }
   }
 
   &__bottom-col-title {
@@ -145,6 +156,7 @@
       opacity: 0;
     }
   }
+
 }
 </style>
 <script>

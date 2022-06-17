@@ -15,6 +15,7 @@ header.header
             p(v-html="headerElementDesc")
       .col
         .hamburger(@click="hamburger" :class="{ open: menuСondition }")
+           
 </template>
 
 <style lang="scss" scoped>
